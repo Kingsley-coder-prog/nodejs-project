@@ -1,0 +1,22 @@
+{
+  "name": "natours",
+  "version": "1.0.0",
+  "description": "Learning node.js, express and mongoDB",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kingsley-coder-prog/nodejs-project.git"
+  },
+  "author": "Ifeanyi Kingsley",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kingsley-coder-prog/nodejs-project/issues"
+  },
+  "homepage": "https://github.com/Kingsley-coder-prog/nodejs-project#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
