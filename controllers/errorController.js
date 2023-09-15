@@ -23,7 +23,7 @@ const sendErrorProd = (err, res) => {
     // 2) Send generic message
     res.status(500).json({
       status: 'error',
-      message: 'Something was very wrong!',
+      message: 'Something is very wrong!',
     });
   }
 };
