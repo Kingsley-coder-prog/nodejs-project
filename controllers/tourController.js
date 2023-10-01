@@ -23,9 +23,9 @@ exports.getAllTours = catchAsync(async (req, res, next) => {
     .paginate();
   const tours = await features.query;
 
-  if (!tour) {
-    return next(new AppError('No tour found with that ID', 404));
-  }
+  // if (!tour) {
+  //   return next(new AppError('No tour found with that ID', 404));
+  // }
 
   // SEND RESPONSE
   res.status(200).json({
