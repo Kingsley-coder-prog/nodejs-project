@@ -10,6 +10,7 @@ const handleDuplicateFieldsDB = (err) => {
   console.log(value);
 
   const message = `Duplicate field value: ${value}. Please use another value!`;
+
   return new AppError(message, 400);
 };
 
@@ -27,7 +28,7 @@ const sendErrorDev = (err, res) => {
     message: err.message,
     stack: err.stack,
   });
-  // console.log(err);
+  console.log(err);
 };
 
 const sendErrorProd = (err, res) => {
@@ -46,7 +47,7 @@ const sendErrorProd = (err, res) => {
     // 2) Send generic message
     res.status(500).json({
       status: 'error',
-      message: 'Something was very wrong!',
+      message: 'Something went very wrong!',
     });
   }
 };
