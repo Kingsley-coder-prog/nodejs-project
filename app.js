@@ -34,4 +34,14 @@ app.all('*', (req, res, next) => {
 
 app.use(globalErrorHandler);
 
+// app.use((req, res, next) => {
+//   const requestContentType = req.header('Content-Type');
+//   res.header('Content-Type', requestContentType);
+//   next();
+// });
+
+// app.get('/', (req, res) => {
+//   res.send('Echoing content type');
+// });
+
 module.exports = app;
