@@ -63,6 +63,8 @@ exports.protect = catchAsync(async (req, res, next) => {
     req.headers.authorization.startsWith('Bearer')
   ) {
     token = req.headers.authorization.split(' ')[1];
+  } else if (req.cookies.jwt) {
+    token = req.cookies.jwt;
   }
 
   if (!token) {
@@ -119,8 +121,10 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
   const resetURL = `${req.protocol}://${req.get(
     'host',
   )}/api/v1/users/resetPassword/${resetToken}`;
+  // console.log(resetURL);
 
   const message = `Forgot your password? Submit a PATCH request with your new password and passwordConfirm to: ${resetURL}.\nIf you didn't forget your password, please ignore this email!`;
+  // console.log(message);
 
   try {
     await sendEmail({
