@@ -3,7 +3,7 @@ import axios from 'https://cdn.jsdelivr.net/npm/axios@1.6.2/+esm';
 
 const login = async (email, password) => {
   try {
-    const res = await axios.post({
+    const res = await axios({
       method: 'POST',
       url: 'http://127.0.0.1:8000/api/v1/users/login',
       data: {
@@ -11,6 +11,7 @@ const login = async (email, password) => {
         password,
       },
     });
+    console.log(res);
 
     if (res.data.status === 'success') {
       alert('Logged in successfully');
@@ -19,6 +20,7 @@ const login = async (email, password) => {
       }, 1500);
     }
   } catch (err) {
+    console.log(err.errresponse.data);
     alert(err.response.data.message);
   }
 };

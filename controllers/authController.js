@@ -47,7 +47,7 @@ exports.signup = catchAsync(async (req, res, next) => {
     passwordCurrent: req.body.passwordCurrent,
   });
 
-  createSendToken(newUser, 201, res);
+  createSendToken(newUser, 201, req, res);
 });
 
 exports.login = catchAsync(async (req, res, next) => {
