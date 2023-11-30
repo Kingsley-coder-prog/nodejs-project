@@ -36,7 +36,7 @@ if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
 
-// Limit requests from same API
+// Limit request from a particular IP address
 const limiter = rateLimit({
   max: 100,
   windowMs: 60 * 60 * 1000,
@@ -45,6 +45,8 @@ const limiter = rateLimit({
 app.use('/api', limiter);
 
 // Body parser, reading data from body into req.body
+// middleware ===> modifies the request
+// Limit the number of data we can pass into a body response
 app.use(express.json({ limit: '10kb' }));
 app.use(cookieParser());
 
@@ -83,6 +85,13 @@ app.use('/api/v1/users', userRouter);
 app.use('/api/v1/reviews', reviewRouter);
 
 app.all('*', (req, res, next) => {
+  // res.status(404).json({
+  //   status: 'fail',
+  //   message: `Can't find ${req.originalUrl} on this server!'`,
+  // });
+  // const err = new Error(`Can't find ${req.originalUrl} on this server!'`);
+  // err.status = 'fail';
+  // err.statusCode = 404;
   next(new AppError(`Can't find ${req.originalUrl} on this server`, 404));
 });
 
