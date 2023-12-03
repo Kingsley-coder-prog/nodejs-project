@@ -17,8 +17,11 @@ const viewRouter = require('./routes/viewRoutes');
 
 const app = express();
 
+// Setting up the view template
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
+
+// const api = '/api/v1';
 
 // 1) GLOBAL MIDDLEWARES
 // Serving static files

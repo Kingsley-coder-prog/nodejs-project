@@ -2,8 +2,7 @@ import axios from 'https://cdn.jsdelivr.net/npm/axios@1.6.2/+esm';
 // https://cdn.jsdelivr.net/npm/axios@1.6.2/+esm
 
 const login = async (email, password) => {
-  // location.assign('/');
-  // console.log(email, password);
+  console.log(email, password);
   try {
     const res = await axios({
       method: 'POST',
@@ -32,4 +31,5 @@ document.querySelector('.form').addEventListener('submit', (e) => {
   const email = document.getElementById('email').value;
   const password = document.getElementById('password').value;
   login(email, password);
+  console.log(email, password);
 });
